@@ -3,24 +3,24 @@
 <head>
 	<title>Web-Page for CloudSMB Frontend</title>
 	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" link="styles.css">
+	<link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
 	<header>
-		<h1>Frontend Group</h1>
-
-		<img alt="logo" src="Images/logo.png" width="150" height="150">
 		
 
+		<img alt="logo" src="Images/logo.png" width="150" height="150">
+		<h1>Frontend Group</h1>
+
 		<nav>
-			<ul>
+			<ul class="firstLayer">
 				<li><a href="">Home</a></li>
 				<li><a href="">HTML</a>
-					<ul>
+					<ul class="secondLayer">
 						<li>Introduction</li>
 						<li>Semantics</li>
 						<li>Elements
-							<ul>
+							<ul class="thirdLayer">
 								<li>Inline elements</li>
 								<li>Block elements</li>
 								<li>Forms and Hyperlinks</li>
@@ -29,7 +29,7 @@
 						</li>
 
 						<li>Attributes
-							<ul>
+							<ul class="thirdLayer">
 								<li>Global attributes</li>
 								<li>Data attributes</li>
 								<li>Event attributes</li>
@@ -39,7 +39,7 @@
 					</ul>
 				</li>
 				<li><a href="">CSS</a>
-					<ul>
+					<ul class="secondLayer">
 						<li>Introduction</li>
 						<li>Syntax</li>
 						<li>Selectors</li>
@@ -52,11 +52,12 @@
 				<li><a href="">Twitter Bootstrap</a></li>
 
 			</ul>
+			
+			<form method="get">
+				<input type="search" placeholder="Search">
+				<button type="submit">Search</button>
+			</form>
 		</nav> 
-		<form method="get">
-			<input type="search" placeholder="Search">
-			<button type="submit">Search</button>
-		</form>
 
 	</header>
 	<main></main>
