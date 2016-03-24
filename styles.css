@@ -1,6 +1,8 @@
 body{
 	font-family:verdana,sans-serif;
 	box-sizing: border-box;
+	
+
 
 }
 
@@ -56,7 +58,7 @@ form{
 	box-sizing: border-box;
 	background-color:rgba(94, 72, 72, 0.5);
 	position:absolute;
-	width:100%;
+	width:120%;
 	height:auto;
 	top:100%;
 	left:0;
@@ -64,23 +66,39 @@ form{
 	font-size:0.8em;
 	/*border:1px solid black;*/
 }
+.secondLayer>li{
+	position:relative;
+}
+.secondLayer>li:hover{
+	color:white;
+	font-weight:bold;
+	cursor:pointer;
+}
 .thirdLayer{
 	display:none;
 	box-sizing: border-box;
 	background-color:rgba(150, 117, 117, 0.5);
 	position:absolute;
-	top:100%;
-	left:20%;
+	top:0%;
+	left:100%;
 	width:100%;
 	height:auto;
 	padding:10px;
 	font-size:1em;
+	color:initial;
+	font-weight:initial;
+	cursor:initial;
 	/*border:1px solid black;*/
+}
+.thirdLayer>li:hover{
+	color:white;
+	font-weight:bold;
+	cursor:pointer;
 }
 li:hover>ul{
 	display:block;
 }
 
 form{
-	clear:both;
+	clear:left;
 }
