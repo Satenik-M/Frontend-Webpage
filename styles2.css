@@ -9,7 +9,7 @@ header, nav, main, aside, footer, #wrapper
 	
 }
 #wrapper{
-	
+	margin:0 auto;
 	display:flex;
 	flex-direction:column;
 	justify-content: space-between;
@@ -32,6 +32,9 @@ nav{
 	
 	justify-content:stretch;
 	align-items:center;
+}
+nav form{
+	padding-right:5px;
 }
 nav ul{
 	list-style:none;
@@ -131,17 +134,104 @@ aside{
 	
 	width:1000px;
 	order:-1;
+
+	
+}
+aside ul{
 	display:flex;
-	flex-direction: column
+	flex-direction: column;
+}
+aside li{
+	display: inline-block;
+}
+aside ul a{
+	display:flex;
+	flex-direction: row;
+	align-items:center;
+	text-decoration: none;
+	color:black;
+	font-weight:bold;
+	
+	border-top:2px solid black;
+}
+aside ul li:last-child{
+	border-bottom:2px solid black;
+}
+aside ul li img{
+	order: -1;
+	display:inline-block;
+}
+aside h2{
+	font-size:1.3em;
+	padding:10px;
+	display:inline-block;
+}
+aside h3{
+	display:inline-block;
+	padding:10px;
+	font-size:1em;
+}
+/*aside h2:after{
+	content:"\2193";
+	display:inline-block;
+	
+	font-size:2em;
+}*/
+
+article{
+	padding:5px;
 }
 
 #wrapper>footer
 {
-	background-color:white;
-	height:100px;
+	display:flex;
+	
+	flex-wrap:wrap;
+	align-items: stretch;
+	
+	background-color:black;
+	/*background:-webkit-linear-gradient(top, white , black 90%);*/
+	height:auto;
+
 
 
 }
+footer ul{
+list-style:none;
+/*border-left:1px solid white;*/
+padding:5px;
+
+}
+footer li{
+	color:white;
+	font-size:0.8em;
+	 line-height: 1.2em;
+}
+footer div{
+	border-bottom:1px solid white;
+	width:100%;
+	padding:5px;
+
+}
+footer small{
+color:white;
+}
+footer a:hover{
+	background-color: black;
+}
+div#firstRow{
+	display:flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+div#secondRow{
+	display:flex;
+	flex-direction: row;
+	align-items:baseline;
+
+	
+}
+
 
 
 	
