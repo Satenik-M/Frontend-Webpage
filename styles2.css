@@ -369,9 +369,7 @@ div#secondRow{
 		display:flex;
 		flex-direction: column;
 	}
-	/*aside ul a{
-		width:initial;
-	}*/
+	
 	#wrapper>footer
 	{
 		display:flex;
