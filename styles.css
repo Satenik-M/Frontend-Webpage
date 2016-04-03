@@ -1,3 +1,10 @@
+
+*{
+margin:0;
+padding:0;
+
+}
+
 body{
 	font-family:verdana,sans-serif;
 	box-sizing: border-box;
@@ -8,8 +15,10 @@ body{
 
 img{
 	float:left;
+	
 
 }
+
 header h1{
 	float:left;
 
@@ -101,4 +110,5 @@ li:hover>ul{
 
 form{
 	clear:left;
+	
 }
