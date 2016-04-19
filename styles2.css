@@ -181,7 +181,7 @@ section {
     -ms-flex-wrap: wrap;
     -webkit-flex-wrap: wrap;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-grow: 1;
     height: auto;
     overflow: auto;
@@ -190,14 +190,15 @@ section {
 
 article {
     display: inline-block;
-    /*padding:5px;*/
+
     margin: 20px;
     max-height: 300px;
     max-width: 300px;
     position: relative;
     text-align: center;
-    box-shadow: 3px 3px 10px #999;
+    box-shadow: inset 3px 3px 10px #999;
     overflow: hidden;
+    border:2px solid grey;
 }
 
     article::after {
@@ -221,17 +222,19 @@ article {
         height: 300px;
         opacity: 1;
         transition: all 0.4s;
+        position: relative;
     }
 
     article:hover .image {
         transform: rotate(720deg) scale(0);
         opacity: 0;
     }
+    article img{
+        opacity:0.7;
 
-    article .image {
-        position: relative;
     }
 
+ 
  article h3 {
     font-size: 2em;   
     background-color: rgba(255,255,255,0.3);
@@ -267,7 +270,7 @@ article {
     }
 
     article h2 {
-        /*transform: translateY(-300px);*/
+       
         transform: translateY(-300px);
         background-color: rgba(0, 0, 0, 0.8);
         color: white;
@@ -276,7 +279,7 @@ article {
         width: 100%;
         margin: 5px 0;
         padding: 5px 0;
-        /*position:absolute;*/
+
     }
 
     article:hover h2 {
@@ -305,7 +308,7 @@ article {
         margin: 10px 5px;
         font-weight: bold;
         font-style: italic;
-        /*position:absolute;*/
+
     }
 
     article:hover p {
@@ -340,7 +343,7 @@ article {
         padding: 7px;
         text-transform: uppercase;
         text-decoration: none;
-        /*position:absolute;*/
+
     }
 
     article:hover a {
@@ -390,13 +393,13 @@ aside {
     }
 
    aside h2 {
-    font-size: 1.3em;
-    color: white;
-    text-shadow: 2px 2px 2px black;
+    font-size: 1.4em;
+    font-style: italic;
+    color: #210A0A;
     padding: 10px;
     display: inline-block;
     text-align: center;
-    background-color: #DDCE8B;
+    background-color: #F7EEC7;
 }
 
     aside h3 {
