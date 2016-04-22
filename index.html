@@ -5,25 +5,27 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="styles2.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script src="app.js"></script>
 </head>
 <body>
     <div id=wrapper>
 
         <header>
-
-
-            <img alt="logo" src="Images/logo.png" width="150" height="150">
+            <div id="imgWrap">
+                <img alt="logo" src="Images/logo.png" width="150" height="150">
+            </div>
             <h1>Frontend Group</h1>
         </header>
         <nav>
             <ul class="firstLayer">
                 <li><a href="">Home</a></li>
-                <li>
-                    <a href="">HTML</a>
-                    <ul class="secondLayer">
+                <li class="parentList">
+                    <a href="" id="test">HTML</a>
+                    <ul class="secondLayer" id="target">
                         <li>Introduction</li>
                         <li>Semantics</li>
-                        <li>
+                        <li class="parentList">
                             Elements
                             <ul class="thirdLayer">
                                 <li>Inline elements</li>
@@ -34,7 +36,7 @@
                         </li>
 
 
-                        <li>
+                        <li class="parentList">
                             Attributes
                             <ul class="thirdLayer">
                                 <li>Global attributes</li>
@@ -45,7 +47,7 @@
                         </li>
                     </ul>
                 </li>
-                <li>
+                <li class="parentList">
                     <a href="">CSS</a>
                     <ul class="secondLayer">
                         <li>Introduction</li>
@@ -205,8 +207,6 @@
                         </p>
                         <a href="#">Read More</a>
                     </div>
-
-
                 </article>
                 <article>
                     <div class="image">
@@ -218,7 +218,6 @@
                             <h2>This is an article</h2>
                         </header>
                         <p>
-
                             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
                             quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -249,20 +248,19 @@
                 </ul>
 
             </aside>
+            <section id="about"></section>
+            <section id="contacts"></section>
         </div>
 
         <footer>
             <div id="firstRow">
 
                 <ul>
-
                     <li><a href="">Lorem ipsum</a> </li>
                     <li><a href="">Dolor sit amet</a></li>
                     <li><a href="">Consectetur</a></li>
                     <li><a href="">Adipisicing elit</a></li>
                     <li><a href="">Repellat</a></li>
-
-
                 </ul>
                 <ul>
                     <li><a href="">Lorem ipsum</a> </li>
@@ -292,5 +290,6 @@
         </footer>
 
     </div>
+
 </body>
 </html>
