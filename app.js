@@ -23,14 +23,4 @@ window.onload = function () {
 };
 
 
-//$('.parentList').each(function (id, element) {
-//    $(element).click(function () {
-//        this.children('ul').show('slow');
 
-
-//    })
-//})
-
-
-
-//});
