@@ -135,14 +135,15 @@ nav a {
 }
 
     nav a:hover {
-        background-color: rgb(97, 130, 130);
+        background-color: rgba(97, 130, 130, 0.66);
     }
 
 .secondLayer {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
-    background-color: rgba(198, 233, 231, 0.95);
+    background-color: rgba(145, 163, 163, 0.75);
+    color:white;
     position: relative;
     width: inherit;
     height: auto;
@@ -150,8 +151,9 @@ nav a {
     left: 0;
     padding: 10px;
     font-size: 1em;
-    z-index: 2;
-    display: block;
+    z-index: 10;
+    display: none;
+    text-align:center;
     
 }
 
@@ -164,34 +166,6 @@ nav a {
             color: rgba(27, 26, 26, 0.80);
             cursor: pointer;
         }
-
-.thirdLayer {
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    background-color: rgba(223, 230, 230, 0.88);
-    position: absolute;
-    top: 0;
-    left: 100%;
-    width: 120%;
-    height: auto;
-    padding: 10px;
-    font-size: 1em;
-    color: initial;
-    font-weight: initial;
-    cursor: initial;
-    z-index: 3;
-    display: none;
-}
-
-    .thirdLayer > li:hover {
-        color: rgba(35, 28, 28, 0.86);
-        cursor: pointer;
-    }
-
-/*li:hover > ul {
-    display: block;
-}*/
 
 #mainArea {
     flex-grow: 1;
