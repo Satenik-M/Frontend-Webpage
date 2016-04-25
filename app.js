@@ -51,17 +51,19 @@ window.onload = function () {
 
 
     };
+    var i;
     function drawTable(collection) {
-        for (var i = 0; i < collection.length; i++) {
+        for (i = 0; i < collection.length; i++) {
             addTableRow(collection[i]);
         }
+        return table;
     };
 
     function clearTable() {
         var length = tbody.childElementCount;
 
 
-        for (var i = 0; i < length ; i++) {
+        for (i = 0; i < length ; i++) {
             table.deleteRow(0);
         }
     }
@@ -77,7 +79,9 @@ window.onload = function () {
             var delete_button = new_row.lastChild.lastChild;
             delete_button.addEventListener('click', function () {
                 delete_button.parentNode.data.deleted = true;
-
+                all_inputs = all_inputs.filter(function (element) { return !(element.deleted); });
+                clearTable();
+                drawTable(all_inputs);
             });
             delete_buttons.unshift(delete_button);
             var complete_button = new_row.firstChild.firstChild;
@@ -92,23 +96,43 @@ window.onload = function () {
     function showCompleted() {
 
 
-        //completed = Array.prototype.slice.call(all_inputs).filter(function (element) {
-        //    return element.completed;
-        //});
-        //if (completed.length !== 0) {
-        //    clearTable();
-        //    drawTable(completed);
-        //}
+        completed = Array.prototype.slice.call(all_inputs).filter(function (element) {
+            return element.completed;
+        });
+        if (completed.length !== 0) {
+            clearTable();
+            table = drawTable(completed);
+        }
 
 
     };
 
+    function showActive() {
+
+
+        active = Array.prototype.slice.call(all_inputs).filter(function (element) {
+            return (!element.completed) &&(!element.deleted);
+        });
+        if (active.length !== 0) {
+            clearTable();
+            table = drawTable(active);
+        }
+
+
+    };
+    function showAll(){
+        clearTable();
+        table = drawTable(all_inputs);
+    };
+
+
     document.getElementById("add").addEventListener('click', addNewtodo);
 
-    document.getElementById("completed").addEventListener('click', showCompleted)
+    document.getElementById("completed").addEventListener('click', showCompleted);
 
-    document.getElementById("active").addEventListener('click', function () {
-    });
+    document.getElementById("active").addEventListener('click', showActive);
+
+    document.getElementById("all").addEventListener('click', showAll);
 
     /*show todo*/
     var todo_section = document.getElementById("todo");
@@ -135,14 +159,14 @@ window.onload = function () {
 
 
     });
-
+    /*button animation*/
     var buttons = document.getElementsByTagName("button");
-    for (var i = 0; i < buttons.length; i++) {
-        buttons[i].addEventListener("mouseenter", function () {
-            buttons[i].className = " animate flipInX";
+    for (var k = 0; k < buttons.length; k++) {
+        buttons[k].addEventListener("mouseenter", function () {
+            this.classList.add("animate", "flipInX");
         });
-        buttons[i].addEventListener("mouseout", function () {
-            buttons[i].className = " animate flipInX";
+        buttons[k].addEventListener("mouseout", function () {
+            this.classList.remove("animate", "flipInX");
         });
 
 

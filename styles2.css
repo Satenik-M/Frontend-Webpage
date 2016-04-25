@@ -173,6 +173,7 @@ nav a {
 }
 
 section {
+    padding-top: 40px;
     display: flex;
     -ms-flex-direction: row;
     -webkit-flex-direction: row;
@@ -229,7 +230,7 @@ section {
     }
 
     #mainArea article img {
-        opacity: 0.7;
+        opacity: 1;
         border-radius: 15px;
     }
 
@@ -694,7 +695,7 @@ article#about_us {
     position: fixed;
     top: 100px;
     right: 39%;
-    background: #B3A3B4;
+    background: #155452;
     padding: 20px;
     border: 2px outset #6A6161;
     /* z-index: 25; */
@@ -708,7 +709,7 @@ article#about_us {
         position: fixed;
         top: 0;
         right: 0;
-        background: rgba(131, 121, 121, 0.58);
+        background: rgba(0, 0, 0, 0.1);
         z-index: -1;
     }
 
@@ -774,6 +775,10 @@ a#toggle {
 
 button#btn_contact {
     position: static;
+    background: #FBFBFB;
+    border: 1px solid #BDBDBD;
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px #515140;
 }
 
 table#saved_todos {
@@ -807,7 +812,7 @@ table#saved_todos {
 
 #saved_todos input, #saved_todos p, #saved_todos div  {
    display:inline-block;
-   margin: 10px 75px 10px 0;
+   margin: 10px 60px 10px 0;
    vertical-align: middle;
 }
 
