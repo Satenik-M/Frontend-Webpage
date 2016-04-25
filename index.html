@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="styles2.css">
+    <link rel="stylesheet" type="text/css" href="animate.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
     <script src="app.js"></script>
 </head>
@@ -240,7 +241,7 @@
                         <button id="btn_contact">Contact Us!</button>
 
                         <div id="form_wrapper">
-                            <form method="post" action="#">
+                            <form method="post" action="">
                                 <label for="name">Name:</label>
                                 <input type="text" value="" id="name" autofocus />
                                 <label for="email">Email:</label>
@@ -255,13 +256,14 @@
                     </section>
                 </section>
                 <section id="todo">
+                    <a id="toggle" href="#"><img src="Images/three.png" alt="Alternate Text" /></a>
                     <div id="todo_list">
                         <h4>Things to be Done</h4>
                         <form>
 
                             <div id="input">
-                                <input type="text" placeholder="todo" value="" />
-                                <input type="button" value="Add To The List" />
+                                <input type="text" placeholder="todo" value="" id="data" />
+                                <input type="button" value="Add To The List" id="add" />
                             </div>
                             <table id="saved_todos">
                                 <tbody>
@@ -273,9 +275,9 @@
                                 </tbody>
                             </table>
                             <div id="buttons">
-                                <button>All</button>
-                                <button>Active</button>
-                                <button>Completed</button>
+                                <button id="all">All</button>
+                                <button id="active">Active</button>
+                                <button id="completed">Completed</button>
                             </div>
 
                         </form>
