@@ -18,11 +18,11 @@ window.onload = function () {
 
 
     /*todo list*/
+    
     function Item(value) {
         this.value = value;
         this.completed = false;
         this.deleted = false;
-        //this._this = this;
         this.tr = document.createElement("TR");
         this.p_container = document.createElement("P");
         this.p_container.innerHTML = this.value;
@@ -30,24 +30,30 @@ window.onload = function () {
         this.btn_delete.innerHTML = "&#215;";
         this.btn_delete.class = "delete";
         this.btn_delete.addEventListener('click', function () {
-            /*how to change current object's deleted property here?*/
-            /*??.deleted:true;*/
             this.deleted = true;
             all_inputs = all_inputs.filter(function (element) { return !(element.deleted); });
             clearTable();
             drawTable(all_inputs);
         }.bind(this));
+        this.click_count = 0;
         this.btn_complete = document.createElement("input");
         this.btn_complete.type = "checkbox";
         this.btn_complete.class = "completed";
-        this.btn_complete.addEventListener('click', function () {
-            /*how to change current object's completed property here? as well as the style of the <p> which holds objects value*/
-            /*??.completed:true;*/
-            //??.style.textDecoration = "line-through";
-            //??.style.color = "grey";
-            this.completed=true;
-            this.p_container.style.textDecoration = "line-through";
-            this.p_container.style.color = "grey";
+        this.btn_complete.addEventListener('click', function () {  /*this event handler should be toggle, if you uncheck the button, the completed status changes to false*/
+            if (this.click_count===0) {
+                this.completed = true;
+                this.p_container.style.textDecoration = "line-through";
+                this.p_container.style.color = "grey";
+                this.click_count = 1;
+            }
+            else {
+                this.completed = false;
+                this.p_container.style.textDecoration = "none";
+                this.p_container.style.color = "black";
+                this.click_count = 0;
+            }
+
+            
         }.bind(this))
     };
 
@@ -55,26 +61,16 @@ window.onload = function () {
 
     var table = document.getElementById("saved_todos");
     var tbody = document.getElementsByTagName('tbody')[0];
-    //var checkbox = document.createElement("input");
-    //checkbox.type = "checkbox";
-    //checkbox.class = "completed";
-    //var btn_delete = document.createElement("div");
-    //btn_delete.innerHTML = "&#215;";
-    //btn_delete.class = "delete";
     var all_inputs = [];
     var completed = [];
     var active = [];
-    //var delete_buttons = [];
-    //var complete_buttons = [];
+
 
     function addTableRow(item) {
-        //var item_value = document.createElement("P");
-        //item_value.innerHTML = item.value;
         var tr = table.insertRow(0);
         var cell = tr.insertCell(0);
         cell.appendChild(item.btn_complete);
         cell.appendChild(item.p_container);
-        //cell.data = item;
         cell.appendChild(item.btn_delete);
         return tr;
 
@@ -101,31 +97,15 @@ window.onload = function () {
         if (input_value) {
             var item = new Item(input_value);
             all_inputs.unshift(item);
-
             var new_row = addTableRow(item);
-            //var delete_button = new_row.lastChild.lastChild;
-            //delete_button.addEventListener('click', function () {
-            //    delete_button.parentNode.data.deleted = true;
-            //    all_inputs = all_inputs.filter(function (element) { return !(element.deleted); });
-            //    clearTable();
-            //    drawTable(all_inputs);
-            //});
-            //delete_buttons.unshift(delete_button);
-            //var complete_button = new_row.firstChild.firstChild;
-            //complete_button.addEventListener('click', function () {
-
-            //    complete_button.parentNode.data.completed = true;
-            //    complete_button.nextSibling.style.textDecoration = "line-through";
-            //    complete_button.nextSibling.style.color = "grey";
-            //})
         }
     };
     function showCompleted() {
         completed = Array.prototype.slice.call(all_inputs).filter(function (element) {
             return element.completed;
         });
+        clearTable();
         if (completed.length !== 0) {
-            clearTable();
             table = drawTable(completed);
         }
     };
@@ -144,13 +124,9 @@ window.onload = function () {
         table = drawTable(all_inputs);
     };
 
-
     document.getElementById("add").addEventListener('click', addNewtodo);
-
     document.getElementById("completed").addEventListener('click', showCompleted);
-
     document.getElementById("active").addEventListener('click', showActive);
-
     document.getElementById("all").addEventListener('click', showAll);
 
     /*show todo*/
