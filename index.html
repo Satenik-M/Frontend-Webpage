@@ -8,6 +8,8 @@
     <link rel="stylesheet" type="text/css" href="animate.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
     <script src="app.js"></script>
+
+
 </head>
 <body>
     <div id=wrapper>
@@ -226,14 +228,19 @@
 
                 </aside>
             </div>
+            <div id="carousel">
+
+
+
+            </div>
             <div id="additional">
                 <section id="about">
                     <article id="about_us">
                         <h2>About us</h2>
                         <p>Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel.</p>
                     </article>
-                    <div class="empty"></div>
-                    <div class="empty"></div>
+                    <div class="empty">Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel.</div>
+                    <div class="empty">Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel.</div>
                     <section id="contact">
                         <h3>Contcact Us</h3>
                         <p>Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel.</p>
@@ -241,7 +248,7 @@
                         <button id="btn_contact">Contact Us!</button>
 
                         <div id="form_wrapper">
-                            <form method="post" action="">
+                            <form method="post" action="index.html">
                                 <label for="name">Name:</label>
                                 <input type="text" value="" id="name" autofocus />
                                 <label for="email">Email:</label>
@@ -284,6 +291,7 @@
                     </div>
 
                 </section>
+                <section id="geolocation"></section>
             </div>
         </main>
 
@@ -325,5 +333,9 @@
             </div>
         </footer>
     </div>
+    <script src="geolocation.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYrKqEvFAMWVMrf9KP1Si7LuO2z18B9Q4&signed_in=true&callback=initMap"
+            async defer></script>
+
 </body>
 </html>
