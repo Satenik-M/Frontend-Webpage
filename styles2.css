@@ -649,7 +649,7 @@ a#toggle {
     -ms-transform: rotate(90deg);
     -o-transform: rotate(90deg);
     -webkit-transform: rotate(90deg);
-    transform: rotate(90deg);
+    transform: rotate(90deg) translateY(37px);
     margin-top: 250px;
 }
 

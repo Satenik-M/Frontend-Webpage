@@ -22,31 +22,60 @@ window.onload = function () {
         this.value = value;
         this.completed = false;
         this.deleted = false;
+        //this._this = this;
+        this.tr = document.createElement("TR");
+        this.p_container = document.createElement("P");
+        this.p_container.innerHTML = this.value;
+        this.btn_delete = document.createElement("div");
+        this.btn_delete.innerHTML = "&#215;";
+        this.btn_delete.class = "delete";
+        this.btn_delete.addEventListener('click', function () {
+            /*how to change current object's deleted property here?*/
+            /*??.deleted:true;*/
+            this.deleted = true;
+            all_inputs = all_inputs.filter(function (element) { return !(element.deleted); });
+            clearTable();
+            drawTable(all_inputs);
+        }.bind(this));
+        this.btn_complete = document.createElement("input");
+        this.btn_complete.type = "checkbox";
+        this.btn_complete.class = "completed";
+        this.btn_complete.addEventListener('click', function () {
+            /*how to change current object's completed property here? as well as the style of the <p> which holds objects value*/
+            /*??.completed:true;*/
+            //??.style.textDecoration = "line-through";
+            //??.style.color = "grey";
+            this.completed=true;
+            this.p_container.style.textDecoration = "line-through";
+            this.p_container.style.color = "grey";
+        }.bind(this))
     };
+
+
 
     var table = document.getElementById("saved_todos");
     var tbody = document.getElementsByTagName('tbody')[0];
-    var checkbox = document.createElement("input");
-    checkbox.type = "checkbox";
-    checkbox.class = "completed";
-    var btn_delete = document.createElement("div");
-    btn_delete.innerHTML = "&#215;";
-    btn_delete.class = "delete";
+    //var checkbox = document.createElement("input");
+    //checkbox.type = "checkbox";
+    //checkbox.class = "completed";
+    //var btn_delete = document.createElement("div");
+    //btn_delete.innerHTML = "&#215;";
+    //btn_delete.class = "delete";
     var all_inputs = [];
     var completed = [];
     var active = [];
-    var delete_buttons = [];
-    var complete_buttons = [];
+    //var delete_buttons = [];
+    //var complete_buttons = [];
 
     function addTableRow(item) {
-        var item_value = document.createElement("P");
-        item_value.innerHTML = item.value;
+        //var item_value = document.createElement("P");
+        //item_value.innerHTML = item.value;
         var tr = table.insertRow(0);
         var cell = tr.insertCell(0);
-        cell.appendChild(checkbox.cloneNode());
-        cell.appendChild(item_value);
-        cell.data = item;
-        cell.appendChild(btn_delete.cloneNode(true));
+        cell.appendChild(item.btn_complete);
+        cell.appendChild(item.p_container);
+        //cell.data = item;
+        cell.appendChild(item.btn_delete);
         return tr;
 
 
@@ -61,8 +90,6 @@ window.onload = function () {
 
     function clearTable() {
         var length = tbody.childElementCount;
-
-
         for (i = 0; i < length ; i++) {
             table.deleteRow(0);
         }
@@ -76,26 +103,24 @@ window.onload = function () {
             all_inputs.unshift(item);
 
             var new_row = addTableRow(item);
-            var delete_button = new_row.lastChild.lastChild;
-            delete_button.addEventListener('click', function () {
-                delete_button.parentNode.data.deleted = true;
-                all_inputs = all_inputs.filter(function (element) { return !(element.deleted); });
-                clearTable();
-                drawTable(all_inputs);
-            });
-            delete_buttons.unshift(delete_button);
-            var complete_button = new_row.firstChild.firstChild;
-            complete_button.addEventListener('click', function () {
+            //var delete_button = new_row.lastChild.lastChild;
+            //delete_button.addEventListener('click', function () {
+            //    delete_button.parentNode.data.deleted = true;
+            //    all_inputs = all_inputs.filter(function (element) { return !(element.deleted); });
+            //    clearTable();
+            //    drawTable(all_inputs);
+            //});
+            //delete_buttons.unshift(delete_button);
+            //var complete_button = new_row.firstChild.firstChild;
+            //complete_button.addEventListener('click', function () {
 
-                complete_button.parentNode.data.completed = true;
-                complete_button.nextSibling.style.textDecoration = "line-through";
-                complete_button.nextSibling.style.color = "grey";
-            })
+            //    complete_button.parentNode.data.completed = true;
+            //    complete_button.nextSibling.style.textDecoration = "line-through";
+            //    complete_button.nextSibling.style.color = "grey";
+            //})
         }
     };
     function showCompleted() {
-
-
         completed = Array.prototype.slice.call(all_inputs).filter(function (element) {
             return element.completed;
         });
@@ -103,24 +128,18 @@ window.onload = function () {
             clearTable();
             table = drawTable(completed);
         }
-
-
     };
 
     function showActive() {
-
-
         active = Array.prototype.slice.call(all_inputs).filter(function (element) {
-            return (!element.completed) &&(!element.deleted);
+            return (!element.completed) && (!element.deleted);
         });
         if (active.length !== 0) {
             clearTable();
             table = drawTable(active);
         }
-
-
     };
-    function showAll(){
+    function showAll() {
         clearTable();
         table = drawTable(all_inputs);
     };
@@ -156,8 +175,6 @@ window.onload = function () {
     btn_contact.addEventListener('click', function () {
         var form = document.querySelector('#contact form');
         form.style.display = "flex";
-
-
     });
     /*button animation*/
     var buttons = document.getElementsByTagName("button");
@@ -168,16 +185,11 @@ window.onload = function () {
         buttons[k].addEventListener("mouseout", function () {
             this.classList.remove("animate", "flipInX");
         });
-
-
     }
 
-    //var link = document.createElement("link");
-    //link.href = "otherStyle.css";
-    //link.rel = "stylesheet";
-    //link.type = "text/css";
-    //document.head.appendChild(link);
 };
+
+
 
 
 
