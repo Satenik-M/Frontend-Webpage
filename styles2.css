@@ -552,10 +552,24 @@ header img {
     -webkit-transform: scale(1.5) translate(176px, 45px);
     transform: scale(1.5) translate(176px, 45px);
 }
-
+#about{
+    padding-top:0;
+}
 article#about_us {
-    text-align: end;
+    /* text-align: center; */
     background: #B6DAD9;
+    /* padding: 0 20%; */
+}
+.slide article, .slide section, .slide div{
+    margin:0 auto;
+    text-align:center;
+
+}
+.carousel{
+    margin-top:50px;
+}
+.slide div{
+    background:#dacaca;
 }
 
 #additional {
@@ -580,9 +594,10 @@ article#about_us {
 }
 
 #about_us, .empty, #contact {
-    width: 48%;
+    width: 100%;
     height: 160px;
     padding: 5px;
+    text-align: center;
 }
 
 #contact {
@@ -629,47 +644,49 @@ label {
     font-weight: bold;
     color: white;
 }
+#toggle{
+    display:inline-block;
+    background-color: #F2EFA5;
+    min-width: 10%;
+    height:auto;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px grey;
+    margin: 5px;
+    text-align: center;
+    text-decoration: none;
+    color: #000000;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+#todo_list{
+    display:none;
+}
 
-#todo {
+#todo_list.show {
     display: flex;
-    width: 30%;
-    background: rgba(169, 157, 157, 0.63);
-    height: 100%;
+    min-width: 40%;
+    background: rgba(240, 240, 152, 0.75);
     position: fixed;
-    top: 8%;
-    right: -27%;
-}
-
-a#toggle {
-    position: absolute;
-}
-
-#todo img {
-    -moz-transform: rotate(90deg);
-    -ms-transform: rotate(90deg);
-    -o-transform: rotate(90deg);
-    -webkit-transform: rotate(90deg);
-    transform: rotate(90deg) translateY(37px);
-    margin-top: 250px;
-}
-
-#todo_list {
-    overflow: auto;
-    height: 50%;
-    background: rgb(255, 249, 219);
+    top: 25%;
+    right: 7%;
     text-transform: uppercase;
-    border-top: 10px dotted rgba(169, 157, 157, 0.63);
+    border-top: 10px dotted rgba(169, 157, 157, 0.5);
     padding: 14px;
-    margin-left: 39px;
-    position: relative;
+    overflow: auto;
+    /* box-sizing: content-box; */
 }
+
+
+
+
 
     #todo_list:before {
         content: "";
         width: 35px;
         height: 35px;
         position: absolute;
-        top: 0px;
+        top: 0;
         left: 87%;
         -moz-transform: rotate(106deg);
         -ms-transform: rotate(106deg);
@@ -760,13 +777,18 @@ table#saved_todos {
         height: auto;
     }
 
-        nav > ul {
-            width: 100%;
-        }
+    #todo.show {
+        top: 15%;
+    }
 
-            nav > ul > li {
-                flex-grow: 1;
-            }
+
+    nav > ul {
+        width: 100%;
+    }
+
+        nav > ul > li {
+            flex-grow: 1;
+        }
 
     article {
         -ms-align-content: space-around;
@@ -778,10 +800,7 @@ table#saved_todos {
 /*-------------------------------------------*/
 /*----------------------------------------*/
 @media (max-width: 635px) {
-    * {
-        display: block;
-        height: auto;
-    }
+
 
     nav, nav ul, nav li, form, input {
         width: 100%;
@@ -853,6 +872,39 @@ table#saved_todos {
     button {
         right: 15px;
     }
+
+
+    #todo.show {
+        top: 0;
+        left: 0;
+        display: flex;
+     
+        right: 0;
+        max-width: none;
+        height: 50%;
+        padding-top: 0;
+    }
+
+    #todo.show #todo_list {
+        height: 55%;
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+    }
+
+        #todo.show #todo_list form {
+            display: flex;
+            flex-direction: column;
+            align-content: space-between;
+        }
+
+    #buttons {
+        display: flex;
+    }
+
+
+
 
     #mainArea {
         -ms-flex-direction: column;

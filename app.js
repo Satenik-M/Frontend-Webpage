@@ -1,4 +1,20 @@
-window.onload = function () {
+$(document).ready(function(){
+      $('.carousel').slick({
+  dots: true,
+  infinite: true,
+  speed: 500,
+  fade: true,
+  cssEase: 'linear', 
+  autoplay:true
+
+
+      });
+    });
+
+
+
+
+
     /* menu */
     var openMe = Array.prototype.slice.call(document.getElementsByClassName("open"));
     var count = 0;
@@ -86,10 +102,10 @@ window.onload = function () {
 
     function clearTable() {
         var length = tbody.childElementCount;
-        for (i = 0; i < length ; i++) {
+        for (var j = 0; j < length ; j++) {
             table.deleteRow(0);
         }
-    }
+    };
 
     function addNewtodo() {
 
@@ -118,6 +134,9 @@ window.onload = function () {
             clearTable();
             table = drawTable(active);
         }
+        else{
+          clearTable();
+        }
     };
     function showAll() {
         clearTable();
@@ -130,24 +149,26 @@ window.onload = function () {
     document.getElementById("all").addEventListener('click', showAll);
 
     /*show todo*/
-    var todo_section = document.getElementById("todo");
+    var todo_section = document.getElementById("todo_list");
     var todo_toggle = document.getElementById("toggle");
     var count_todo = 0;
+    
     todo_toggle.addEventListener('click', function () {
         if (count_todo === 0) {
-            todo_section.style.right = "-1%";
+            todo_section.classList.add("show");
             count_todo = 1;
         }
         else {
-            todo_section.style.right = "-27%";
+            todo_section.classList.remove("show");;
             count_todo = 0;
         }
+
+        
     });
 
     /*contact us*/
 
     var btn_contact = document.getElementById("btn_contact");
-    var form_count = 0;
     btn_contact.addEventListener('click', function () {
         var form = document.querySelector('#contact form');
         form.style.display = "flex";
@@ -163,7 +184,6 @@ window.onload = function () {
         });
     }
 
-};
 
 
 

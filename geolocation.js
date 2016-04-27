@@ -1,34 +1,34 @@
-function initMap() {
-    var map = new google.maps.Map(document.getElementById('geolocation'), {
-        center: { lat: -34.397, lng: 150.644 },
-        zoom: 10,
-        mapTypeId: google.maps.MapTypeId.HYBRID
-    });
-    var infoWindow = new google.maps.InfoWindow({ map: map });
+window.onload = geolocateUser;
+function geolocationSuccess(position) {
+    var userLatLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 
+
+    var myOptions = {
+        zoom: 16,
+        center: userLatLng,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    // Draw the map
+    var mapObject = new google.maps.Map(document.getElementById("geolocation"), myOptions);
+    // Place the marker
+    new google.maps.Marker({
+        map: mapObject,
+        position: userLatLng
+    });
+
+}
+
+function geolocationError(positionError) {
+    document.getElementById("geolocation").innerHTML += "Error: " + positionError.message + "<br />";
+}
+
+function geolocateUser() {
 
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function (position) {
-            var pos = {
-                lat: position.coords.latitude,
-                lng: position.coords.longitude
-            };
 
-            infoWindow.setPosition(pos);
-            infoWindow.setContent('WE ARE HERE! JOIN US!!!');
-            map.setCenter(pos);
-        }, function () {
-            handleLocationError(true, infoWindow, map.getCenter());
-        });
-    } else {
-
-        handleLocationError(false, infoWindow, map.getCenter());
+        navigator.geolocation.getCurrentPosition(geolocationSuccess, geolocationError);
     }
+    else
+        document.getElementById("geolocation").innerHTML += "Your browser doesn't support the Geolocation API";
 }
 
-function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-    infoWindow.setPosition(pos);
-    infoWindow.setContent(browserHasGeolocation ?
-                          'Error: The Geolocation service failed.' :
-                          'Error: Your browser doesn\'t support geolocation.');
-}
