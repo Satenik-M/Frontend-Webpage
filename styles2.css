@@ -801,6 +801,11 @@ table#saved_todos {
 /*----------------------------------------*/
 @media (max-width: 635px) {
 
+    *{
+        display:block;
+    }
+    
+
 
     nav, nav ul, nav li, form, input {
         width: 100%;
