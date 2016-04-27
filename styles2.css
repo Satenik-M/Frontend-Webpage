@@ -779,7 +779,6 @@ table#saved_todos {
 /*----------------------------------------*/
 @media (max-width: 635px) {
     * {
-        display: block;
         height: auto;
     }
 
