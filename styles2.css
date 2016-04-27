@@ -552,24 +552,28 @@ header img {
     -webkit-transform: scale(1.5) translate(176px, 45px);
     transform: scale(1.5) translate(176px, 45px);
 }
-#about{
-    padding-top:0;
+
+#about {
+    padding-top: 0;
 }
+
 article#about_us {
     /* text-align: center; */
     background: #B6DAD9;
     /* padding: 0 20%; */
 }
-.slide article, .slide section, .slide div{
-    margin:0 auto;
-    text-align:center;
 
+.slide article, .slide section, .slide div {
+    margin: 0 auto;
+    text-align: center;
 }
-.carousel{
-    margin-top:50px;
+
+.carousel {
+    margin-top: 50px;
 }
-.slide div{
-    background:#dacaca;
+
+.slide div {
+    background: #dacaca;
 }
 
 #additional {
@@ -644,11 +648,12 @@ label {
     font-weight: bold;
     color: white;
 }
-#toggle{
-    display:inline-block;
+
+#toggle {
+    display: inline-block;
     background-color: #F2EFA5;
     min-width: 10%;
-    height:auto;
+    height: auto;
     padding: 10px;
     border-radius: 5px;
     box-shadow: 2px 2px 2px grey;
@@ -659,23 +664,24 @@ label {
     font-size: 1.5em;
     font-weight: bold;
 }
-#todo_list{
-    display:none;
+
+#todo_list {
+    display: none;
 }
 
-#todo_list.show {
-    display: flex;
-    min-width: 40%;
-    background: rgba(240, 240, 152, 0.75);
-    position: fixed;
-    top: 25%;
-    right: 7%;
-    text-transform: uppercase;
-    border-top: 10px dotted rgba(169, 157, 157, 0.5);
-    padding: 14px;
-    overflow: auto;
-    /* box-sizing: content-box; */
-}
+    #todo_list.show {
+        display: flex;
+        min-width: 40%;
+        background: rgba(240, 240, 152, 0.75);
+        position: fixed;
+        top: 25%;
+        right: 7%;
+        text-transform: uppercase;
+        border-top: 10px dotted rgba(169, 157, 157, 0.5);
+        padding: 14px;
+        overflow: auto;
+        /* box-sizing: content-box; */
+    }
 
 
 
@@ -878,26 +884,31 @@ table#saved_todos {
         top: 0;
         left: 0;
         display: flex;
-     
         right: 0;
         max-width: none;
         height: 50%;
         padding-top: 0;
     }
 
-    #todo.show #todo_list {
-        height: 55%;
-        width: 80%;
-        display: flex;
-        flex-direction: column;
-        margin: 0 auto;
-    }
-
-        #todo.show #todo_list form {
+        #todo.show #todo_list {
+            height: 55%;
+            width: 80%;
             display: flex;
+            -ms-flex-direction: column;
+            -webkit-flex-direction: column;
             flex-direction: column;
-            align-content: space-between;
+            margin: 0 auto;
         }
+
+            #todo.show #todo_list form {
+                display: flex;
+                -ms-flex-direction: column;
+                -webkit-flex-direction: column;
+                flex-direction: column;
+                -ms-align-content: space-between;
+                -webkit-align-content: space-between;
+                align-content: space-between;
+            }
 
     #buttons {
         display: flex;
